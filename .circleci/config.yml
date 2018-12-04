@@ -1,5 +1,5 @@
 # Python CircleCI 2.0 config file
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -15,14 +15,14 @@ jobs:
       - run:
         name: install dependencies
         command: |
-              python3 -m venv venv
-              . venv/bin/activate
-              pip install -r requirements.txt
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
 
       # Step 3: run linter and tests
       - run:
         name: run tests
         command: |
-              . venv/bin/activate
-              flake8 --exclude=venv* --statistics
-              pytest -v --conv=calculator
+          . venv/bin/activate
+          flake8 --exclude=venv* --statistics
+          pytest -v --conv=calculator
